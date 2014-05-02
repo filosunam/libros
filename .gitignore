@@ -25,6 +25,7 @@ build/Release
 node_modules
 public/components
 public/css/*.css
+public/uploads
 
 Stylesheets/
 tmp/

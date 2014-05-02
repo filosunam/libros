@@ -11,8 +11,15 @@ requirejs([
   'conf',
   'express',
   'execSync',
-  'fs'
-], function (conf, express, sh, fs) {
+  'fs',
+  'crypto'
+], function (
+  conf,
+  express,
+  sh,
+  fs,
+  crypto
+) {
 
   var app         = module.exports = express(),
       session     = require("express-session"),
@@ -40,6 +47,13 @@ requirejs([
   // Static files
   app.use(express.static(__dirname + '/public'));
 
+  // Create directories needed
+  if (!fs.existsSync("./public/uploads")) {
+    fs.mkdirSync('./public/uploads');
+    fs.mkdirSync('./public/uploads/xml');
+    fs.mkdirSync('./public/uploads/epub');
+    fs.mkdirSync('./public/uploads/docx');
+  }
 
   // Development
   if ('development' === app.get('env')) {
@@ -93,23 +107,36 @@ requirejs([
   // route: /upload
   app.route('/upload').post(function(req, res, next) {
     
+    // Get file info
     var file = req.files.file;
-
+    
     if (!file.path.match(/(?:docx)$/)) {
       res.send(500);
     }
 
+    // Simulate MongoID
+    var filename = crypto.createHash('md5').update(Math.random().toString()).digest('hex').substring(0, 24);
+
+    // Save docx file
+    fs.writeFile('./public/uploads/docx/' + filename + '.docx', fs.readFileSync(file.path));
+
     // Execute "docxtotei"
-    var docxtotei = sh.exec('./Stylesheets/bin/docxtotei --profile=../../xsl ' + file.path + ' ./tmp/tei.xml');
-
+    var docxtotei = sh.exec('./Stylesheets/bin/docxtotei --profile=../../xsl ' + file.path + ' ./public/uploads/xml/' + filename + '.xml');
+    
     if (!docxtotei.stderr) {
-
+    
       // Execute "teitoepub3"
-      var teitoepub = sh.exec('./Stylesheets/bin/teitoepub3 --profile=../../xsl ./tmp/tei.xml ./tmp/book.epub');
+      var teitoepub = sh.exec('./Stylesheets/bin/teitoepub3 --profile=../../xsl ./public/uploads/xml/' + filename + '.xml ./public/uploads/epub/' + filename + '.epub');
+      
       if (!teitoepub.stderr) {
-        res.download('./tmp/book.epub');
-      }
 
+        res.download('./public/uploads/epub/' + filename + '.epub');
+
+        // TODO: Save document (MongoDB)
+        // ...
+
+      }
+    
     }
 
   });
