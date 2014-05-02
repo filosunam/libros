@@ -11,3 +11,8 @@ Instalar dependencias.
 Instalar TEI Stylesheets.
 
       $ git clone git@github.com:TEIC/Stylesheets.git
+
+# Todo
+
+* Base de datos con los libros generados
+* Lista de los libros generados
