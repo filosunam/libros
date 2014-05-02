@@ -1,0 +1,28 @@
+{
+  "name": "libros-filos",
+  "version": "0.0.1",
+  "description": "Convierte documentos (docx) a libros electrónicos (TEI, ePub)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Marco Godinez <markotom@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "underscore": "^1.6.0",
+    "requirejs": "^2.1.11",
+    "express": "^4.1.1",
+    "less-middleware": "^0.2.1-beta",
+    "connect-mongo": "^0.4.0",
+    "express-session": "^1.0.4",
+    "body-parser": "^1.0.2",
+    "cookie-parser": "^1.0.1",
+    "method-override": "^1.0.0",
+    "morgan": "^1.0.0",
+    "errorhandler": "^1.0.0",
+    "csurf": "^1.1.0",
+    "mmm": "^0.2.2",
+    "connect-multiparty": "^1.0.3",
+    "execSync": "^1.0.1-pre"
+  }
+}

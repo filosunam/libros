@@ -1,0 +1,53 @@
+<div class="jumbotron">
+  <div class="container">
+    <a href="http://www.filos.unam.mx"><img width="320" style="padding-right: 40px" class="hidden-xs pull-left" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/FFYL_UNAM_Atenea.svg/337px-FFYL_UNAM_Atenea.svg.png" alt="Facultad de Filosofía y Letras, UNAM"></a>
+    <h1>Libros</h1>
+    <h2>Convierte y descarga tu libro electrónico</h2>
+    <p>Sube tu documento de Microsoft Word y descarga un libro electrónico</p>
+    
+    <br>
+
+    <p>
+      <a href="#" class="btn btn-lg btn-success upload_file">Subir documento</a>
+      <a href="http://proyectotei.wordpress.com" class="btn btn-lg btn-primary">Más información</a>
+    </p>
+  </div>
+</div>
+
+<form id="form_file" action="/upload" method="post" enctype="multipart/form-data">
+  <input type="file" id="file" name="file" accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document" style="display: none">
+</form>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h3 class="h4">¿Qué es?</h3>
+      <p>
+        Surge de un proyecto experimental de la <a href="http://filos.unam.mx">Facultad de Filosofía y Letras</a> dirigido a proyectos de investigación.
+        Es una herramienta para obtener libros electrónicos mediante documentos de Microsoft Word.
+      </p>
+      <p>
+        <a href="http://proyectotei.wordpress.com" class="btn btn-sm btn-default">Documentación</a>
+      </p>
+    </div>
+    
+    <hr class="visible-xs visible-sm">
+
+    <div class="col-md-4">
+      <h3 class="h4">¿Qué hace?</h3>
+      <p>Usa y adapta las <a href="http://www.tei-c.org/Tools/Stylesheets/">XSL Stylesheets</a> de la <a href="http://www.tei-c.org">TEI Consortium</a> a los requerimientos de las publicaciones digitales de la Facultad. Convierte documentos de Microsoft Word en XML (.docx) a libros electrónicos en formato TEI XML (marcado de texto) y ePub.</p>
+    </div>
+
+    <hr class="visible-xs visible-sm">
+
+    <div class="col-md-4">
+      <h3 class="h4">¿Cómo empezar?</h3>
+      <p>
+        Descarga la plantilla de Microsoft Word (.dotx), utiliza los estilos para determinar elementos de tu libro como títulos, subtítulos, referencias y metadatos (autor, editor, fecha, etcétera).
+      </p>
+      <p><a href="files/filos.dotx" class="disabled btn btn-sm btn-default">Descargar plantilla</a></p>
+    </div>
+  </div>
+</div>
+
+<br><br><br>

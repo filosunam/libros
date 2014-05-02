@@ -1,0 +1,18 @@
+// Core
+@import '../components/bootstrap/less/bootstrap.less';
+
+// Variables
+@import 'variables.less';
+
+.jumbotron {
+  @media (max-width: @screen-xs-max) {
+    text-align: center;
+    h2 {
+      .h3();
+    }
+    .btn {
+      margin-bottom: @line-height-computed / 2;
+      .btn-block;
+    }
+  }
+}

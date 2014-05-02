@@ -1,0 +1,11 @@
+{
+  "name": "libros-filos",
+  "version": "0.0.1",
+  "authors": [
+    "Marco Godínez <markotom@gmail.com>"
+  ],
+  "description": "Convierte documentos (docx) a libros electrónicos (TEI, ePub)",
+  "dependencies": {
+    "bootstrap": "~3.1.1"
+  }
+}

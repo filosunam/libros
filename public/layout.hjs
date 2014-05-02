@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Libros electrónicos</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="text/javascript" src="/components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="/components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+
+    $(document).ready(function () {
+      
+      $('.upload_file').click(function (e) {
+        e.preventDefault();
+        
+        $('input[id="file"]').click();
+      });
+
+      $('input[id="file"]').change(function () {
+
+        var val = $(this).val();
+
+        if (!val.match(/(?:docx)$/)) {
+          alert('No es un archivo XML válido de Microsoft Word (docx)');
+          return;
+        }
+        
+        $('#form_file').submit();
+
+      });
+
+    });
+
+  </script>
+</head>
+<body>
+  {{> content}}
+</body>
+</html>
