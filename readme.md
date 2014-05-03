@@ -12,6 +12,10 @@ Instalar TEI Stylesheets.
 
       $ git clone git@github.com:TEIC/Stylesheets.git
 
+# Requerimientos
+
+Es necesario tener instalado [Apache Ant](http://ant.apache.org) y [SaxonHE](http://saxon.sourceforge.net).
+
 # Todo
 
 * Base de datos con los libros generados
